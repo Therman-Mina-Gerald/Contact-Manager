@@ -13,6 +13,10 @@ public class contactManagerApp {
 //    Search a contact by her name
 //    Delete an existing contact
 
+    // option 2 needed this variables
+    public static String directory = "src";
+    public static String contactFile = "src/contacts.txt";
+
 
 
 
@@ -30,6 +34,21 @@ public class contactManagerApp {
     public static void option1(Path path)throws IOException{
         printContact(path);
     }
+    public static void option2(){
+        System.out.println("please enter the name and phone number you'd like to add (firstname lastname #**********)");
+
+
+    };
+    public static void option3(){
+
+    };
+    public static void option4(){
+
+    };
+    public static void option5(){
+
+    };
+
 
 
 
@@ -54,6 +73,17 @@ public class contactManagerApp {
         if(userPick == 1){
             option1(pathToContact);
 
+        }else if(userPick == 2){
+            option2();
+
+        }else if(userPick == 3){
+            option3();
+        }else if(userPick == 4){
+
+        }else if(userPick == 5){
+
+        }else {
+            System.out.println("Please enter valid number.");
         }
 
 
