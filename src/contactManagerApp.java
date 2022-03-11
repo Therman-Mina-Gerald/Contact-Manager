@@ -120,7 +120,7 @@ public class contactManagerApp {
 
     public static void main(String[] args) throws IOException {
 
-        Path pathToContact = Paths.get("src/contacts.txt");
+    /*    Path pathToContact = Paths.get("src/contacts.txt");
         // printContact(pathToContact);
 
         //TODO
@@ -153,9 +153,9 @@ public class contactManagerApp {
         }else {
             System.out.println("Please enter valid number.");
         }
+*/
 
-
-
+        option0();
 
 
 
