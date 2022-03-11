@@ -28,6 +28,9 @@ public class contactManagerApp {
         }
     }
 
+
+
+
     public static void option0() throws IOException {
         Path pathToContact = Paths.get("src/contacts.txt");
         // printContact(pathToContact);
@@ -68,32 +71,29 @@ public class contactManagerApp {
     }
 
 
-
-
-
-
-    public static void option1(Path path)throws IOException{
+    public static void option1(Path path) throws IOException {
         printContact(path);
     }
+
     public static void option2() throws IOException {
         System.out.println("Please enter the name and phone number you'd like to add (firstname lastname #**********)");
         Scanner scanner = new Scanner(System.in);
         String response = scanner.nextLine();
-            System.out.printf("You entered: %s.\n Are you sure you want to add contact?[y/n]", response);
-            List<String> contactList;
+        System.out.printf("You entered: %s.\n Are you sure you want to add contact?[y/n]", response);
+        List<String> contactList;
 
-            Path dataDirectory = Paths.get(directory);
-            Path dataDirectoryAndFile = Paths.get(directory,"contacts.txt");
-            String responseTwo = scanner.nextLine();
-            if(responseTwo.equalsIgnoreCase("y")|| responseTwo.equalsIgnoreCase("yes")){
-              List<String> newContact = List.of(response);
+        Path dataDirectory = Paths.get(directory);
+        Path dataDirectoryAndFile = Paths.get(directory, "contacts.txt");
+        String responseTwo = scanner.nextLine();
+        if (responseTwo.equalsIgnoreCase("y") || responseTwo.equalsIgnoreCase("yes")) {
+            List<String> newContact = List.of(response);
 //                System.out.println(response);
 //                System.out.println(newContact);
 //              Files.write(dataDirectoryAndFile,newContact);
-              Files.write(dataDirectoryAndFile,newContact, StandardOpenOption.APPEND);
-            } else {
-                option0();
-            }
+            Files.write(dataDirectoryAndFile, newContact, StandardOpenOption.APPEND);
+        } else {
+            option0();
+        }
 
 
 /*if(Files.notExists(dataDirectoryAndFile)){
@@ -101,40 +101,42 @@ public class contactManagerApp {
 
             Files.createFile(dataDirectoryAndFile);
         }*/
-    };
+    }
+
+    ;
+
     public static void option3() throws IOException {
         System.out.println("Enter contact name you are looking for.");
         Scanner scanner = new Scanner(System.in);
         String response = scanner.nextLine();
 
         Path dataDirectory = Paths.get(directory);
-        Path dataDirectoryAndFile = Paths.get(directory,"contacts.txt");
+        Path dataDirectoryAndFile = Paths.get(directory, "contacts.txt");
         List<String> contactList = Files.readAllLines(dataDirectoryAndFile);
         System.out.println(contactList);
-        for (int i = 0; i< contactList.size(); i++) {
+        for (int i = 0; i < contactList.size(); i++) {
             String result;
-            if (contactList.get(i).contains(response)) {
-                result = contactList.get(Integer.parseInt(contactList.get(i)));
-                System.out.println(result);
+            if (contactList.get(i).toLowerCase().contains(response.toLowerCase())) {
+                System.out.println(contactList.get(i));
             } else {
                 System.out.println("Contact Not Found");
                 option0();
             }
-
+        }
         }
 
-    };
-    public static void option4(){
-        System.out.println("Which contact would you like to delete?(WARNING:Changes are FINAL)");
-    };
-    public static void option5(){
 
-    };
+        public static void option4 () {
+            System.out.println("Which contact would you like to delete?(WARNING:Changes are FINAL)");
+        }
+        ;
+        public static void option5 () {
+
+        }
+        ;
 
 
-
-
-    public static void main(String[] args) throws IOException {
+        public static void main (String[]args) throws IOException {
 
     /*    Path pathToContact = Paths.get("src/contacts.txt");
         // printContact(pathToContact);
@@ -171,12 +173,9 @@ public class contactManagerApp {
         }
 */
 
-        option0();
+            option0();
 
 
+        }
 
-
-
-
-    }
 }
