@@ -37,13 +37,17 @@ public class contactManagerApp {
     public static void option2(){
         System.out.println("please enter the name and phone number you'd like to add (firstname lastname #**********)");
 
+/*if(Files.notExists(dataDirectoryAndFile)){
+            Files.createDirectories(dataDirectory);
 
+            Files.createFile(dataDirectoryAndFile);
+        }*/
     };
     public static void option3(){
-
+        System.out.println("Enter contact name.");
     };
     public static void option4(){
-
+        System.out.println("Which contact would you like to delete?(WARNING:Changes are FINAL)");
     };
     public static void option5(){
 
