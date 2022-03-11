@@ -35,8 +35,25 @@ public class contactManagerApp {
     public static void option1(Path path)throws IOException{
         printContact(path);
     }
-    public static void option2(){
-        System.out.println("Please enter the" + ANSI_GREEN + "name" + ANSI_GREEN + "and phone number you'd like to add (firstname lastname #**********)");
+    public static void option2() throws IOException {
+        System.out.println("Please enter the name and phone number you'd like to add (firstname lastname #**********)");
+        Scanner scanner = new Scanner(System.in);
+        String response = scanner.nextLine();
+            System.out.printf("You entered: %s.\n Are you sure you want to add contact?[y/n]", response);
+            List<String> contactList;
+
+            Path dataDirectory = Paths.get(directory);
+            Path dataDirectoryAndFile = Paths.get(directory,"contacts.txt");
+            String responseTwo = scanner.nextLine();
+            if(responseTwo.equalsIgnoreCase("y")|| responseTwo.equalsIgnoreCase("yes")){
+              List<String> newContact = Arrays.asList(response);
+                System.out.println(response);
+                System.out.println(newContact);
+//              Files.write(dataDirectoryAndFile,newContact);
+              Files.write(dataDirectoryAndFile,newContact, StandardOpenOption.APPEND);
+
+            }
+
 
 /*if(Files.notExists(dataDirectoryAndFile)){
             Files.createDirectories(dataDirectory);
@@ -80,10 +97,10 @@ public class contactManagerApp {
 
         }else if(userPick == 2){
             option2();
-            String response = scanner.next();
-            System.out.printf("You entered: %s", response);
-            System.out.println(", Are you sure you want to add contact?[y/n]");
-            String responsetwo = scanner.next();
+//            String response = scanner.nextLine();
+//            System.out.printf("You entered: %s", response);
+//            System.out.println(", Are you sure you want to add contact?[y/n]");
+//            String responsetwo = scanner.nextLine();
             //return responsetwo.equalsIgnoreCase("y") || response.equalsIgnoreCase("YES") || response.equalsIgnoreCase("yes");
 
         }else if(userPick == 3){
