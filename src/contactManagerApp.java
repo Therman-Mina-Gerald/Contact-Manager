@@ -31,6 +31,49 @@ public class contactManagerApp {
             System.out.printf("%d: %s\n", i + 1, fileContents.get(i));
         }
     }
+    public static void option0()throws IOException{
+        Path pathToContact = Paths.get("src/contacts.txt");
+        // printContact(pathToContact);
+
+        //TODO
+//        1. View contacts.
+//        2. Add a new contact.
+//        3. Search a contact by name.
+//        4. Delete an existing contact.
+//        5. Exit.
+//                Enter an option (1, 2, 3, 4 or 5):
+        Scanner scanner = new Scanner (System.in);
+        System.out.println("Welcome to your Contacts\nPlease choose from options \n1. View contacts.\n2. Add a new contact.\n3. Search a contact by name.\n4. Delete an existing contact.\n5. Exit.");
+
+        int userPick = scanner.nextInt();
+
+        //
+        if(userPick == 1){
+            option1(pathToContact);
+
+        }else if(userPick == 2){
+            option2();
+
+
+        }else if(userPick == 3){
+            option3();
+
+        }else if(userPick == 4){
+            option4();
+        }else if(userPick == 5){
+            option5();
+        }else {
+            System.out.println("Please enter valid number.");
+            option0();
+        }
+
+
+    }
+
+
+
+
+
 
     public static void option1(Path path)throws IOException{
         printContact(path);
@@ -51,7 +94,8 @@ public class contactManagerApp {
 //                System.out.println(newContact);
 //              Files.write(dataDirectoryAndFile,newContact);
               Files.write(dataDirectoryAndFile,newContact, StandardOpenOption.APPEND);
-
+            } else {
+                option0();
             }
 
 
@@ -77,7 +121,7 @@ public class contactManagerApp {
     public static void main(String[] args) throws IOException {
 
         Path pathToContact = Paths.get("src/contacts.txt");
-        printContact(pathToContact);
+        // printContact(pathToContact);
 
         //TODO
 //        1. View contacts.
@@ -97,11 +141,7 @@ public class contactManagerApp {
 
         }else if(userPick == 2){
             option2();
-//            String response = scanner.nextLine();
-//            System.out.printf("You entered: %s", response);
-//            System.out.println(", Are you sure you want to add contact?[y/n]");
-//            String responsetwo = scanner.nextLine();
-            //return responsetwo.equalsIgnoreCase("y") || response.equalsIgnoreCase("YES") || response.equalsIgnoreCase("yes");
+
 
         }else if(userPick == 3){
             option3();
