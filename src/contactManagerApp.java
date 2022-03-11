@@ -79,13 +79,19 @@ public class contactManagerApp {
 
         }else if(userPick == 2){
             option2();
+            String response = scanner.next();
+            System.out.printf("You entered: %s", response);
+            System.out.println(", Are you sure you want to add contact?[y/n]");
+            String responsetwo = scanner.next();
+            //return responsetwo.equalsIgnoreCase("y") || response.equalsIgnoreCase("YES") || response.equalsIgnoreCase("yes");
 
         }else if(userPick == 3){
             option3();
+
         }else if(userPick == 4){
-
+            option4();
         }else if(userPick == 5){
-
+            option5();
         }else {
             System.out.println("Please enter valid number.");
         }
