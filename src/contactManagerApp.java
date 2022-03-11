@@ -19,11 +19,7 @@ public class contactManagerApp {
     public static String contactFile = "src/contacts.txt";
 
 
-
-
-
-
-    public static void printContact(Path filePath)throws IOException {
+    public static void printContact(Path filePath) throws IOException {
         System.out.println();
         List<String> fileContents = Files.readAllLines(filePath);
         //We need List as .readAllLines returns List datatype
@@ -31,7 +27,8 @@ public class contactManagerApp {
             System.out.printf("%d: %s\n", i + 1, fileContents.get(i));
         }
     }
-    public static void option0()throws IOException{
+
+    public static void option0() throws IOException {
         Path pathToContact = Paths.get("src/contacts.txt");
         // printContact(pathToContact);
 
@@ -42,27 +39,27 @@ public class contactManagerApp {
 //        4. Delete an existing contact.
 //        5. Exit.
 //                Enter an option (1, 2, 3, 4 or 5):
-        Scanner scanner = new Scanner (System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to your Contacts\nPlease choose from options \n1. View contacts.\n2. Add a new contact.\n3. Search a contact by name.\n4. Delete an existing contact.\n5. Exit.");
 
         int userPick = scanner.nextInt();
 
         //
-        if(userPick == 1){
+        if (userPick == 1) {
             option1(pathToContact);
 
-        }else if(userPick == 2){
+        } else if (userPick == 2) {
             option2();
 
 
-        }else if(userPick == 3){
+        } else if (userPick == 3) {
             option3();
 
-        }else if(userPick == 4){
+        } else if (userPick == 4) {
             option4();
-        }else if(userPick == 5){
+        } else if (userPick == 5) {
             option5();
-        }else {
+        } else {
             System.out.println("Please enter valid number.");
             option0();
         }
@@ -105,8 +102,27 @@ public class contactManagerApp {
             Files.createFile(dataDirectoryAndFile);
         }*/
     };
-    public static void option3(){
-        System.out.println("Enter contact name.");
+    public static void option3() throws IOException {
+        System.out.println("Enter contact name you are looking for.");
+        Scanner scanner = new Scanner(System.in);
+        String response = scanner.nextLine();
+
+        Path dataDirectory = Paths.get(directory);
+        Path dataDirectoryAndFile = Paths.get(directory,"contacts.txt");
+        List<String> contactList = Files.readAllLines(dataDirectoryAndFile);
+        System.out.println(contactList);
+        for (int i = 0; i< contactList.size(); i++) {
+            String result;
+            if (contactList.get(i).contains(response)) {
+                result = contactList.get(Integer.parseInt(contactList.get(i)));
+                System.out.println(result);
+            } else {
+                System.out.println("Contact Not Found");
+                option0();
+            }
+
+        }
+
     };
     public static void option4(){
         System.out.println("Which contact would you like to delete?(WARNING:Changes are FINAL)");
