@@ -6,6 +6,7 @@ import java.io.*;
 
 public class contactManagerApp {
 
+    public static final String ANSI_GREEN = "\u001B[32m";
 
     //   TODO
 //    Show all your contacts  - done
@@ -35,7 +36,7 @@ public class contactManagerApp {
         printContact(path);
     }
     public static void option2(){
-        System.out.println("please enter the name and phone number you'd like to add (firstname lastname #**********)");
+        System.out.println("Please enter the" + ANSI_GREEN + "name" + ANSI_GREEN + "and phone number you'd like to add (firstname lastname #**********)");
 
 /*if(Files.notExists(dataDirectoryAndFile)){
             Files.createDirectories(dataDirectory);
