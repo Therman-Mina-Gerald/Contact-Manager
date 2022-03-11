@@ -46,9 +46,9 @@ public class contactManagerApp {
             Path dataDirectoryAndFile = Paths.get(directory,"contacts.txt");
             String responseTwo = scanner.nextLine();
             if(responseTwo.equalsIgnoreCase("y")|| responseTwo.equalsIgnoreCase("yes")){
-              List<String> newContact = Arrays.asList(response);
-                System.out.println(response);
-                System.out.println(newContact);
+              List<String> newContact = List.of(response);
+//                System.out.println(response);
+//                System.out.println(newContact);
 //              Files.write(dataDirectoryAndFile,newContact);
               Files.write(dataDirectoryAndFile,newContact, StandardOpenOption.APPEND);
 
